@@ -24,237 +24,28 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     ""name"": ""PlayerInputActions"",
     ""maps"": [
         {
-            ""name"": ""Player"",
-            ""id"": ""ba4cfb3a-9800-465b-b0b4-7b10efde8b9f"",
+            ""name"": ""Ball"",
+            ""id"": ""5a5a4ccf-5e8d-4b84-b4c5-d4e980b4ef9b"",
             ""actions"": [
                 {
-                    ""name"": ""ColorChange"",
+                    ""name"": ""Bounce"",
                     ""type"": ""Button"",
-                    ""id"": ""b63a92ae-2b01-4e5e-897a-74afa5da9fa3"",
+                    ""id"": ""35a72a30-05d5-4e5d-987f-3553c4eff929"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Rotate"",
-                    ""type"": ""Value"",
-                    ""id"": ""6a5fedad-b0e1-4910-ab73-1bd0cba50a63"",
-                    ""expectedControlType"": ""Axis"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""Drive"",
-                    ""type"": ""Button"",
-                    ""id"": ""46d305b4-76a1-4ac0-8773-6b8cdd6fda92"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Hold"",
                     ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""8896eb1a-eb63-4c30-b577-ce0810bd115d"",
+                    ""id"": ""67724182-9d7f-40cd-9993-f9b50e127c62"",
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""ColorChange"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""1D Axis"",
-                    ""id"": ""47a916d3-5898-4a00-a9b0-5095ed8ea716"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Rotate"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""negative"",
-                    ""id"": ""8f501b65-ac39-458f-9e22-797a9a2646b4"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Rotate"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""38546055-7bd6-4fc5-9238-21accf1072df"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Rotate"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""e6d3b668-15cc-48bf-b7b5-a9d0763d2613"",
-                    ""path"": ""<Keyboard>/t"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Drive"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                }
-            ]
-        },
-        {
-            ""name"": ""Driving"",
-            ""id"": ""80a06f2b-234a-4e24-a1bb-3aa36e42079f"",
-            ""actions"": [
-                {
-                    ""name"": ""Movement"",
-                    ""type"": ""Value"",
-                    ""id"": ""aaa8fb25-121b-4ce2-9d68-b484345fd1eb"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""StopDriving"",
-                    ""type"": ""Button"",
-                    ""id"": ""8ee30c43-72ab-4144-a4cd-c659ca124b30"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                }
-            ],
-            ""bindings"": [
-                {
-                    ""name"": ""2D Vector"",
-                    ""id"": ""c5977268-343b-490e-8bb3-314d42f1e3b1"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""6a491bb7-39cd-4261-913d-0f2a876e88b4"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""259199e6-8100-45f2-a805-d344473fb246"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""826ca9fb-bfa5-4346-b734-6fd328fe6cae"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""5f8bdade-4160-4d3f-a6d2-b4116d577120"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""2D Vector"",
-                    ""id"": ""5825a7ed-6cea-497f-b330-fb52e090f775"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""a9a1ab0c-b0b0-4793-8f67-60425d2d036c"",
-                    ""path"": ""<Keyboard>/upArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""09c5a4a5-66f6-4174-b2c0-1e1d0f355e6c"",
-                    ""path"": ""<Keyboard>/downArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""bdc68841-55a7-4d55-ab1f-f6fc9e9995df"",
-                    ""path"": ""<Keyboard>/leftArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""72385124-3888-4704-be02-42c0921ced20"",
-                    ""path"": ""<Keyboard>/rightArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""0fcdea1a-083c-4cf3-9c00-50b2ab047ee6"",
-                    ""path"": ""<Keyboard>/t"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""StopDriving"",
+                    ""action"": ""Bounce"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -263,15 +54,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     ],
     ""controlSchemes"": []
 }");
-        // Player
-        m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
-        m_Player_ColorChange = m_Player.FindAction("ColorChange", throwIfNotFound: true);
-        m_Player_Rotate = m_Player.FindAction("Rotate", throwIfNotFound: true);
-        m_Player_Drive = m_Player.FindAction("Drive", throwIfNotFound: true);
-        // Driving
-        m_Driving = asset.FindActionMap("Driving", throwIfNotFound: true);
-        m_Driving_Movement = m_Driving.FindAction("Movement", throwIfNotFound: true);
-        m_Driving_StopDriving = m_Driving.FindAction("StopDriving", throwIfNotFound: true);
+        // Ball
+        m_Ball = asset.FindActionMap("Ball", throwIfNotFound: true);
+        m_Ball_Bounce = m_Ball.FindAction("Bounce", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -328,104 +113,40 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // Player
-    private readonly InputActionMap m_Player;
-    private IPlayerActions m_PlayerActionsCallbackInterface;
-    private readonly InputAction m_Player_ColorChange;
-    private readonly InputAction m_Player_Rotate;
-    private readonly InputAction m_Player_Drive;
-    public struct PlayerActions
+    // Ball
+    private readonly InputActionMap m_Ball;
+    private IBallActions m_BallActionsCallbackInterface;
+    private readonly InputAction m_Ball_Bounce;
+    public struct BallActions
     {
         private @PlayerInputActions m_Wrapper;
-        public PlayerActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @ColorChange => m_Wrapper.m_Player_ColorChange;
-        public InputAction @Rotate => m_Wrapper.m_Player_Rotate;
-        public InputAction @Drive => m_Wrapper.m_Player_Drive;
-        public InputActionMap Get() { return m_Wrapper.m_Player; }
+        public BallActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Bounce => m_Wrapper.m_Ball_Bounce;
+        public InputActionMap Get() { return m_Wrapper.m_Ball; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(PlayerActions set) { return set.Get(); }
-        public void SetCallbacks(IPlayerActions instance)
+        public static implicit operator InputActionMap(BallActions set) { return set.Get(); }
+        public void SetCallbacks(IBallActions instance)
         {
-            if (m_Wrapper.m_PlayerActionsCallbackInterface != null)
+            if (m_Wrapper.m_BallActionsCallbackInterface != null)
             {
-                @ColorChange.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnColorChange;
-                @ColorChange.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnColorChange;
-                @ColorChange.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnColorChange;
-                @Rotate.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotate;
-                @Rotate.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotate;
-                @Rotate.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotate;
-                @Drive.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDrive;
-                @Drive.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDrive;
-                @Drive.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDrive;
+                @Bounce.started -= m_Wrapper.m_BallActionsCallbackInterface.OnBounce;
+                @Bounce.performed -= m_Wrapper.m_BallActionsCallbackInterface.OnBounce;
+                @Bounce.canceled -= m_Wrapper.m_BallActionsCallbackInterface.OnBounce;
             }
-            m_Wrapper.m_PlayerActionsCallbackInterface = instance;
+            m_Wrapper.m_BallActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @ColorChange.started += instance.OnColorChange;
-                @ColorChange.performed += instance.OnColorChange;
-                @ColorChange.canceled += instance.OnColorChange;
-                @Rotate.started += instance.OnRotate;
-                @Rotate.performed += instance.OnRotate;
-                @Rotate.canceled += instance.OnRotate;
-                @Drive.started += instance.OnDrive;
-                @Drive.performed += instance.OnDrive;
-                @Drive.canceled += instance.OnDrive;
+                @Bounce.started += instance.OnBounce;
+                @Bounce.performed += instance.OnBounce;
+                @Bounce.canceled += instance.OnBounce;
             }
         }
     }
-    public PlayerActions @Player => new PlayerActions(this);
-
-    // Driving
-    private readonly InputActionMap m_Driving;
-    private IDrivingActions m_DrivingActionsCallbackInterface;
-    private readonly InputAction m_Driving_Movement;
-    private readonly InputAction m_Driving_StopDriving;
-    public struct DrivingActions
+    public BallActions @Ball => new BallActions(this);
+    public interface IBallActions
     {
-        private @PlayerInputActions m_Wrapper;
-        public DrivingActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Movement => m_Wrapper.m_Driving_Movement;
-        public InputAction @StopDriving => m_Wrapper.m_Driving_StopDriving;
-        public InputActionMap Get() { return m_Wrapper.m_Driving; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(DrivingActions set) { return set.Get(); }
-        public void SetCallbacks(IDrivingActions instance)
-        {
-            if (m_Wrapper.m_DrivingActionsCallbackInterface != null)
-            {
-                @Movement.started -= m_Wrapper.m_DrivingActionsCallbackInterface.OnMovement;
-                @Movement.performed -= m_Wrapper.m_DrivingActionsCallbackInterface.OnMovement;
-                @Movement.canceled -= m_Wrapper.m_DrivingActionsCallbackInterface.OnMovement;
-                @StopDriving.started -= m_Wrapper.m_DrivingActionsCallbackInterface.OnStopDriving;
-                @StopDriving.performed -= m_Wrapper.m_DrivingActionsCallbackInterface.OnStopDriving;
-                @StopDriving.canceled -= m_Wrapper.m_DrivingActionsCallbackInterface.OnStopDriving;
-            }
-            m_Wrapper.m_DrivingActionsCallbackInterface = instance;
-            if (instance != null)
-            {
-                @Movement.started += instance.OnMovement;
-                @Movement.performed += instance.OnMovement;
-                @Movement.canceled += instance.OnMovement;
-                @StopDriving.started += instance.OnStopDriving;
-                @StopDriving.performed += instance.OnStopDriving;
-                @StopDriving.canceled += instance.OnStopDriving;
-            }
-        }
-    }
-    public DrivingActions @Driving => new DrivingActions(this);
-    public interface IPlayerActions
-    {
-        void OnColorChange(InputAction.CallbackContext context);
-        void OnRotate(InputAction.CallbackContext context);
-        void OnDrive(InputAction.CallbackContext context);
-    }
-    public interface IDrivingActions
-    {
-        void OnMovement(InputAction.CallbackContext context);
-        void OnStopDriving(InputAction.CallbackContext context);
+        void OnBounce(InputAction.CallbackContext context);
     }
 }
