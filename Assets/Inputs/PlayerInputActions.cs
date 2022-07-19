@@ -33,7 +33,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""id"": ""35a72a30-05d5-4e5d-987f-3553c4eff929"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": ""Hold"",
+                    ""interactions"": """",
                     ""initialStateCheck"": false
                 }
             ],
@@ -50,6 +50,34 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Bar"",
+            ""id"": ""09b49ab4-f9bc-4b1d-9ad9-2b8f14f3ecf6"",
+            ""actions"": [
+                {
+                    ""name"": ""Fill"",
+                    ""type"": ""Button"",
+                    ""id"": ""51c7139b-8b14-4592-869f-17d25027d026"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Hold(duration=0.1,pressPoint=0.1)"",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""4b6d0b8e-d404-4979-8e26-b5168f71a846"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Fill"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -57,6 +85,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         // Ball
         m_Ball = asset.FindActionMap("Ball", throwIfNotFound: true);
         m_Ball_Bounce = m_Ball.FindAction("Bounce", throwIfNotFound: true);
+        // Bar
+        m_Bar = asset.FindActionMap("Bar", throwIfNotFound: true);
+        m_Bar_Fill = m_Bar.FindAction("Fill", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -145,8 +176,45 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         }
     }
     public BallActions @Ball => new BallActions(this);
+
+    // Bar
+    private readonly InputActionMap m_Bar;
+    private IBarActions m_BarActionsCallbackInterface;
+    private readonly InputAction m_Bar_Fill;
+    public struct BarActions
+    {
+        private @PlayerInputActions m_Wrapper;
+        public BarActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Fill => m_Wrapper.m_Bar_Fill;
+        public InputActionMap Get() { return m_Wrapper.m_Bar; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(BarActions set) { return set.Get(); }
+        public void SetCallbacks(IBarActions instance)
+        {
+            if (m_Wrapper.m_BarActionsCallbackInterface != null)
+            {
+                @Fill.started -= m_Wrapper.m_BarActionsCallbackInterface.OnFill;
+                @Fill.performed -= m_Wrapper.m_BarActionsCallbackInterface.OnFill;
+                @Fill.canceled -= m_Wrapper.m_BarActionsCallbackInterface.OnFill;
+            }
+            m_Wrapper.m_BarActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Fill.started += instance.OnFill;
+                @Fill.performed += instance.OnFill;
+                @Fill.canceled += instance.OnFill;
+            }
+        }
+    }
+    public BarActions @Bar => new BarActions(this);
     public interface IBallActions
     {
         void OnBounce(InputAction.CallbackContext context);
+    }
+    public interface IBarActions
+    {
+        void OnFill(InputAction.CallbackContext context);
     }
 }

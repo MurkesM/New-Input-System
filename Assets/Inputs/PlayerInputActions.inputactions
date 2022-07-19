@@ -11,7 +11,7 @@
                     "id": "35a72a30-05d5-4e5d-987f-3553c4eff929",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Hold",
+                    "interactions": "",
                     "initialStateCheck": false
                 }
             ],
@@ -24,6 +24,34 @@
                     "processors": "",
                     "groups": "",
                     "action": "Bounce",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Bar",
+            "id": "09b49ab4-f9bc-4b1d-9ad9-2b8f14f3ecf6",
+            "actions": [
+                {
+                    "name": "Fill",
+                    "type": "Button",
+                    "id": "51c7139b-8b14-4592-869f-17d25027d026",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold(duration=0.1,pressPoint=0.1)",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "4b6d0b8e-d404-4979-8e26-b5168f71a846",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Fill",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
