@@ -22357,6 +22357,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 359860633}
+  _interactableZone: {fileID: 0}
 --- !u!4 &1219144696
 Transform:
   m_ObjectHideFlags: 0
