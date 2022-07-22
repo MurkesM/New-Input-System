@@ -35,6 +35,33 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""InteractableButton1"",
+                    ""type"": ""Button"",
+                    ""id"": ""73daa6b3-370d-47ad-912e-fc17874b08be"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""InteractableButton2"",
+                    ""type"": ""Button"",
+                    ""id"": ""34e0f906-5d86-4345-a46e-ba1d61eb4e91"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""InteractableButton3"",
+                    ""type"": ""Button"",
+                    ""id"": ""4fe36cf1-8aed-4bdc-90ce-e31a6940a8e9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -92,6 +119,39 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""30163681-f874-4d6c-bf84-90ddcfe0b6f8"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""InteractableButton1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f1293406-bc99-4f56-b1af-78b18a64cbae"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""InteractableButton2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1dde5e24-be56-477b-97fb-4aeb6f104e24"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""InteractableButton3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -101,6 +161,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
+        m_Player_InteractableButton1 = m_Player.FindAction("InteractableButton1", throwIfNotFound: true);
+        m_Player_InteractableButton2 = m_Player.FindAction("InteractableButton2", throwIfNotFound: true);
+        m_Player_InteractableButton3 = m_Player.FindAction("InteractableButton3", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -161,11 +224,17 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player;
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Movement;
+    private readonly InputAction m_Player_InteractableButton1;
+    private readonly InputAction m_Player_InteractableButton2;
+    private readonly InputAction m_Player_InteractableButton3;
     public struct PlayerActions
     {
         private @InputActions m_Wrapper;
         public PlayerActions(@InputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
+        public InputAction @InteractableButton1 => m_Wrapper.m_Player_InteractableButton1;
+        public InputAction @InteractableButton2 => m_Wrapper.m_Player_InteractableButton2;
+        public InputAction @InteractableButton3 => m_Wrapper.m_Player_InteractableButton3;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -178,6 +247,15 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Movement.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
                 @Movement.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
                 @Movement.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
+                @InteractableButton1.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteractableButton1;
+                @InteractableButton1.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteractableButton1;
+                @InteractableButton1.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteractableButton1;
+                @InteractableButton2.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteractableButton2;
+                @InteractableButton2.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteractableButton2;
+                @InteractableButton2.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteractableButton2;
+                @InteractableButton3.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteractableButton3;
+                @InteractableButton3.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteractableButton3;
+                @InteractableButton3.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteractableButton3;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -185,6 +263,15 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Movement.started += instance.OnMovement;
                 @Movement.performed += instance.OnMovement;
                 @Movement.canceled += instance.OnMovement;
+                @InteractableButton1.started += instance.OnInteractableButton1;
+                @InteractableButton1.performed += instance.OnInteractableButton1;
+                @InteractableButton1.canceled += instance.OnInteractableButton1;
+                @InteractableButton2.started += instance.OnInteractableButton2;
+                @InteractableButton2.performed += instance.OnInteractableButton2;
+                @InteractableButton2.canceled += instance.OnInteractableButton2;
+                @InteractableButton3.started += instance.OnInteractableButton3;
+                @InteractableButton3.performed += instance.OnInteractableButton3;
+                @InteractableButton3.canceled += instance.OnInteractableButton3;
             }
         }
     }
@@ -192,5 +279,8 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
     public interface IPlayerActions
     {
         void OnMovement(InputAction.CallbackContext context);
+        void OnInteractableButton1(InputAction.CallbackContext context);
+        void OnInteractableButton2(InputAction.CallbackContext context);
+        void OnInteractableButton3(InputAction.CallbackContext context);
     }
 }

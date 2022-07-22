@@ -122,10 +122,14 @@ namespace Game.Scripts.LiveObjects
 
         private void Update()
         {
+           
+        }
+
+        public void HandleZoneInteractions(float ebutton)
+        {
             if (_inZone == true)
             {
-
-                if (Input.GetKeyDown(_zoneKeyInput) && _keyState != KeyState.PressHold)
+                if (ebutton != 0)
                 {
                     //press
                     switch (_zoneType)
@@ -153,13 +157,11 @@ namespace Game.Scripts.LiveObjects
                 {
                     _inHoldState = true;
 
-                   
-
                     switch (_zoneType)
-                    {                      
+                    {
                         case ZoneType.HoldAction:
                             PerformHoldAction();
-                            break;           
+                            break;
                     }
                 }
 
@@ -168,8 +170,6 @@ namespace Game.Scripts.LiveObjects
                     _inHoldState = false;
                     onHoldEnded?.Invoke(_zoneID);
                 }
-
-               
             }
         }
        
@@ -256,5 +256,3 @@ namespace Game.Scripts.LiveObjects
         
     }
 }
-
-
