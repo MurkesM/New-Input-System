@@ -16,8 +16,8 @@ public class GameInputManager : MonoBehaviour
 
     void Update()
     {
-        Vector2 moveDirection = _input.Player.Movement.ReadValue<Vector2>();
-        float rotateDirection = _input.Player.Rotation.ReadValue<float>();
-        _player.CalcutateMovement(moveDirection, rotateDirection);
+        float moveXDirection = _input.Player.Movement.ReadValue<Vector3>().x;
+        float moveZDirection = _input.Player.Movement.ReadValue<Vector3>().z;
+        _player.CalcutateMovement(moveXDirection, moveZDirection);
     }
 }

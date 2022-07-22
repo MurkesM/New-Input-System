@@ -13,6 +13,7 @@ namespace Game.Scripts.Player
         private Animator _anim;
         [SerializeField]
         private float _speed = 5.0f;
+        private float _rotateSpeed = 2.5f;
         private bool _playerGrounded;
         [SerializeField]
         private Detonator _detonator;
@@ -48,38 +49,32 @@ namespace Game.Scripts.Player
                 Debug.Log("Failed to connect the Animator");
         }
 
-        private void Update()
-        {
-            
-        }
-
-        public void CalcutateMovement(Vector2 moveDirection, float rotateDirection)
+        public void CalcutateMovement(float h, float v)
         {
             if (_canMove == true)
+            {
+                _playerGrounded = _controller.isGrounded;
+                //float h = Input.GetAxisRaw("Horizontal");
+                // float v = Input.GetAxisRaw("Vertical");
 
-            //_playerGrounded = _controller.isGrounded;
-            //float h = Input.GetAxisRaw("Horizontal");
-            //float v = Input.GetAxisRaw("Vertical");
+                transform.Rotate(transform.up, h * _rotateSpeed);
 
-            transform.Rotate(transform.up, rotateDirection);
-
-            //var direction = transform.forward * v;
-            var velocity = moveDirection * _speed;
-
-
-            _anim.SetFloat("Speed", Mathf.Abs(velocity.magnitude));
+                var direction = transform.forward * v;
+                var velocity = direction * _speed;
 
 
-            //if (_playerGrounded)
-            //    velocity.y = 0f;
-            //if (!_playerGrounded)
-            //{
-            //    velocity.y += -20f * Time.deltaTime;
-            //}
+                _anim.SetFloat("Speed", Mathf.Abs(velocity.magnitude));
 
-            //_controller.Move(velocity * Time.deltaTime);
 
-            transform.Translate(moveDirection * _speed * Time.deltaTime);
+                if (_playerGrounded)
+                    velocity.y = 0f;
+                if (!_playerGrounded)
+                {
+                    velocity.y += -20f * Time.deltaTime;
+                }
+
+                _controller.Move(velocity * Time.deltaTime);
+            }
         }
 
         private void InteractableZone_onZoneInteractionComplete(InteractableZone zone)
